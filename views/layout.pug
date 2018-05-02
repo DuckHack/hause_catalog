@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+	head
+		title= title
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		div(class='head')
+			p It's a free real estate
+		ul(class='toolbar')
+			li(class='list')
+				a(href='/') Home
+			li(class='list')
+				a(href='/logging') Log in
+			li(class='op_list')
+				a(href='/about') About
+		block contentList
+	footer
+		div(class='about')
+			p Created By DuckHack
+			a(href='/about') About
+

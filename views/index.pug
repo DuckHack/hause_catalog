@@ -1,0 +1,16 @@
+extends layout
+
+
+block contentList
+	div(class='page_name')
+		h1= name
+	div(class='bg')
+			div('responsive')
+				div(class='gallery')
+					each building in building_list
+						a(href='/details/' + building.name)
+							img(src='/images/' + building.name + '/main.jpg')
+
+
+
+
