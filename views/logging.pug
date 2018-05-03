@@ -1,6 +1,17 @@
-extends logging_layout
+extends layout
 
-block content
-	h1= title
-	p Hello to #{title}
-	button Click on me
+block contentList
+	h1=title
+	div(class='sign_up_bg')
+			div(class='form_bord')
+				form(action="/logging/validate/" method="post")
+					div(class="form-group")
+						label(for="userName") User Name
+						input(type="text" class="form-control" name="userName" placeholder="Entere your user name")
+					div(class="form-group")
+						label(for="emailAdress") Email Adress
+						input(type="text" class="form-control" name="emailAdress" placeholder="Entere your email")
+					div(class="form-group")
+						label(for="password") Password
+						input(type="text" class="form-control" name="password" placeholder="Entere your password")
+					button(type="submit" class="btn btn-primary") Sign in

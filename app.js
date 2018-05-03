@@ -4,18 +4,26 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+
 
 var index = require('./routes/index');
 var about = require('./routes/about');
 var house_shop = require('./routes/house_shop');
 var logging = require('./routes/entityies');
 var details = require('./routes/details');
+//var edit = require('./routes/edit');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(logger('dev'));
 app.use(express.json());

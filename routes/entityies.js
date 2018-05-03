@@ -5,6 +5,8 @@ var logging_controller = require('../controllers/loggingController');
 
 /* GET users listing. */
 router.get('/', logging_controller.logging);
+
+router.post('/validate', logging_controller.validate_user)
 /*
 router.get('/', function(req, res, next){
   res.send('respond with a resource');

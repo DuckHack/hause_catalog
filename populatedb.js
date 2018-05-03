@@ -6,13 +6,12 @@ if (!userArgs[0].startsWith('mongodb://')) {
     console.log('ERROR: You need to specify a valid mongodb URL as the first argument');
     return
 }
-console.log('Stop1');
-var async = require('async')
-console.log('Stop2');
-var Building = require('./models/building')
-console.log('Stop3');
-var Seller = require('./models/seller')
-console.log('Stop4');
+
+var async = require('async');
+var Building = require('./models/building');
+var Seller = require('./models/seller');
+var Entity = require('./models/entity');
+
 
 var mongoose = require('mongoose');
 var mongoDB = userArgs[0];
@@ -23,7 +22,6 @@ mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection 
 
 var buildings = []
 var sellers = []
-console.log('Stop5');
 function buildingCreate(seller, name, area, land_area, price, beadrooms_number, bathrooms_number, publication_date, cb) {
   buildingdetail = {
 			seller:seller,
@@ -51,6 +49,26 @@ function buildingCreate(seller, name, area, land_area, price, beadrooms_number, 
 }
 
 
+function entityCreate(user_name, passwd, email, cb) {
+  entitydetail = { 
+    user_name: user_name,
+    passwd: passwd,
+    email: email
+  }
+    
+  var entity = new Entity(entitydetail);    
+  entity.save(function (err) {
+    if (err) {
+      cb(err, null)
+      return
+    }
+    console.log('new Entity: ' + entity);
+    sellers.push(entity)
+    cb(null, entity)
+  }  );
+}
+
+
 function sellerCreate(company_name, phone_number, email, cb) {
   sellerdetail = { 
     company_name: company_name,
@@ -69,6 +87,8 @@ function sellerCreate(company_name, phone_number, email, cb) {
     cb(null, seller)
   }  );
 }
+
+
 
 
 function creteSellers(cb) {
@@ -103,12 +123,23 @@ function creteBuildings(cb) {
         cb);
 }
 
+function creteEntitys(cb) {
+    async.parallel([
+        function(callback) {
+          entityCreate('DuckerHacker', '12345678', 'DuckerHacker@gmail.com', callback);
+        },
+        ],
+        // optional callback
+        cb);
+}
+
 
 
 
 async.series([
-    creteSellers,
-    creteBuildings
+	creteSellers,
+	creteBuildings,
+	creteEntitys
 ],
 // Optional callback
 function(err, results) {
