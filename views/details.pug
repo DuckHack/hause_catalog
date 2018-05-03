@@ -3,7 +3,20 @@ extends layout
 
 block contentList
 	div(class='page_name')
-		h1= name
+		h1=name
+		h1=building.name
+	img(src='/images/' + building.name + '/1.jpg')
+	p=building.area
+	br
+	p=building.land_area
+	br
+	p=building.price
+	br
+	p=building.beadrooms_number
+	br
+	p=building.bathrooms_number
+	br
+	p=building.publication_date
 
 
 

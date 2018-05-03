@@ -18,7 +18,7 @@ var buildingSchema = new Schema({
 buildingSchema
 .virtual('url')
 .get(function(){
-	return '/house_catalog/building/' + this._id;
+	return '/details/' + this._id;
 });
 
 module.exports = mongoose.model('Building', buildingSchema);

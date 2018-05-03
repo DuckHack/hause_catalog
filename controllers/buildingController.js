@@ -8,11 +8,12 @@ exports.index = function(req, res) {
 )};
 */
 exports.index = function(req, res, next) {
-  Building.find({}, 'name seller')
-    .populate('seller')
-    .exec(function (err, list_buildings) {
-      if (err) { return next(err); }
+	Building.find({}, 'name seller')
+		.populate('seller')
+		.exec(function (err, list_buildings) {
+			if (err) { return next(err); }
       //Successful, so render
-      res.render('index', { name: 'Buildings List', building_list: list_buildings });
-    }); 
+				//console.log(list_buildings);
+				res.render('index', { name: 'Buildings List', building_list: list_buildings });
+		}); 
 };
