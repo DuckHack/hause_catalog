@@ -1,24 +1,58 @@
 extends layout
 
-
 block contentList
 	div(class='page_name')
 		h1=name
-		h1=building.name
-	img(src='/images/' + building.name + '/1.jpg')
-	p=building.area
-	br
-	p=building.land_area
-	br
-	p=building.price
-	br
-	p=building.beadrooms_number
-	br
-	p=building.bathrooms_number
-	br
-	p=building.publication_date
-
-
-
-
-
+		div(class="building_name")
+			p=building.name
+	div(id="myCarousel" class="carousel slide" data-ride="carousel")
+		ol(class="carousel-indicators")
+			li(data-target="#myCarousel" data-slide-to="0" class="active")
+			each val in [2, 3, 4, 5, 6, 7, 8]
+				li(data-target="#myCarousel" data-slide-to=val)
+		div(class="carousel-inner" role="listbox")
+			div(class="item active")
+				img(src='/images/' + building.name + '/1.jpg')
+				div(class="carousel-caption")
+			each val in [2, 3, 4, 5, 6, 7, 8]
+				div(class="item")
+					img(src='/images/' + building.name + '/' + val + '.jpg')
+					div(class="carousel-caption")
+		a(class="left carousel-control" href="#myCarousel" role="button" data-slide="prev")
+			span(class="glyphicon glyphicon-chevron-left" aria-hidden="true")
+			span(class="sr-only") Previous  
+		a(class="right carousel-control" href="#myCarousel" role="button" data-slide="next")
+			span(class="glyphicon glyphicon-chevron-right" aria-hidden="true")
+			span(class="sr-only") Next
+	div(class="details_table")
+		table(class="table")
+			thead 
+				tr
+					th(scope="col") #
+					th(scope="col") Name
+					th(scope="col") Value
+			tbody
+				tr
+					th(scope="row") 1
+					td Area
+					td #{building.area}
+				tr
+					th(scope="row") 2
+					td Land Area
+					td #{building.land_area}
+				tr
+					th(scope="row") 3
+					td Price
+					td #{building.price}
+				tr
+					th(scope="row") 4
+					td Beadrooms Number
+					td #{building.beadrooms_number}
+				tr
+					th(scope="row") 5
+					td Bathrooms Number
+					td #{building.bathrooms_number}
+				tr
+					th(scope="row") 6
+					td Publication Date
+					td #{building.publication_date}

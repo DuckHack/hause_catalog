@@ -1,20 +1,22 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 
 
-var index = require('./routes/index');
-var about = require('./routes/about');
-var house_shop = require('./routes/house_shop');
-var logging = require('./routes/entityies');
-var details = require('./routes/details');
-//var edit = require('./routes/edit');
 
-var app = express();
+const index = require('./routes/index');
+const about = require('./routes/about');
+const house_shop = require('./routes/house_shop');
+const logging = require('./routes/entityies');
+const details = require('./routes/details');
+const edit = require('./routes/edit');
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,13 +32,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
 
 app.use('/', index);
 app.use('/about', about);
 app.use('/house_shop', house_shop);
 app.use('/logging', logging);
 app.use('/details', details);
-
+app.use('/edit', edit);
 //conn to db
 var mongoDB = 'mongodb://127.0.0.1/my-database';
 mongoose.connect(mongoDB);

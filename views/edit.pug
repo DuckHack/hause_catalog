@@ -1,0 +1,35 @@
+extends layout
+
+block contentList
+	h1=title
+	div(class='edit_bg')
+			div(class='form_bord')
+				form(action="/edit/edit_building/" method="post")
+					div(class="form-group")
+						label(for="exampleFormControlSelect1") Select the seller
+						select(class="form-control" id="exampleFormControlSelect1")
+							each seller in seller_list
+								option #{seller.company_name}
+					div(class="form-group")
+						label(for="name") Name
+						input(type="text" class="form-control" name="name" placeholder="Name")
+					div(class="form-group")
+						label(for="area") Area
+						input(type="text" class="form-control" name="area" placeholder="Area")
+					div(class="form-group")
+						label(for="price") Price
+						input(type="text" class="form-control" name="price" placeholder="Price")
+					div(class="form-group")
+						label(for="beadrooms_number") Beadrooms  
+						input(type="text" class="form-control" name="beadrooms_number" placeholder="Beadrooms number")
+					div(class="form-group")
+						label(for="bathrooms_number") Bathrooms 
+						input(type="text" class="form-control" name="bathrooms_number" placeholder="Bathrooms number")
+					div(class="form-group")
+						label(for="land_area") Land area
+						input(type="text" class="form-control" name="land_area" placeholder="Land area(m^2)")
+					div(class="form-group")
+						input(type="file" class="form-control" id="images" name="images[]" onchange="preview_images();" multiple)
+					button(type="submit" class="btn btn-primary") Edit
+				div(class="row" id="image_preview")
+

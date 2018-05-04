@@ -114,6 +114,30 @@ body {
 .about a:hover{
 	color: red;
 }
+/**DETAILS PAGE**/
+.building_name{
+	text-align: center;
+	font-size: 30px;
+}
+.carousel-inner img{
+	height: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.item{
+	height: 600px;
+	width: auto;
+}
+
+.details_table{
+	margin: 20px;
+}
+
+.details_table th, td{
+	font-size: 20px;
+}
+/***************************/
 
 /**LOGGING PAGE**/
 .sign_up_bg{
