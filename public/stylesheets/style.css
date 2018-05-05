@@ -28,20 +28,22 @@ body {
 
 .bg{
 	background-color: rgba(240, 240, 240, 0.1);
-	z-index: -1;	
+	border: 1px solid #e7e7e7;
+	z-index: -1;
+	padding: 20px;
+	margin: 10px;
 }
 
 .head{
 	height: 60px;
 	background-color: rgba(240, 240, 240, 0);
 	margin: 40px;
-
 }
 
 .head p{
 
 	margin: 0 auto;
-	color: black;
+	color: rgba(240, 240, 240, 1);
 	font-size: 50px;
 	text-align: center;
 }
@@ -56,11 +58,11 @@ body {
 /** TOOL BAR**/
 .toolbar {
 	list-style-type: none;
-	margin: 0;
+	margin: 10px;
 	padding: 0;
 	overflow: hidden;
 	border: 1px solid #e7e7e7;
-	background-color: #f3f3f3;
+	background-color: rgba(240, 240, 240, 0.1);
 	font-size: 20px;	
 }
 
@@ -92,32 +94,41 @@ body {
 
 .gallery img{
 	display: block;
-	padding: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	width: 60%;
 	height: auto;
 }
 
+.gallery img:hover{
+	box-shadow: 10px 10px 5px #aaaaaa;
+}
+
 .about{
 	min-height: 20px;
 	max-height: 100px;
+	margin: 10px;
 	text-align: center;
 	font-size: 20px;
-	margin: 5px;
 	background-color: rgba(240, 240, 240, 0.1);
+	border: 1px solid #e7e7e7;
 }
 .about a{
 	text-decoration: none;
 	color: black;
 }
 .about a:hover{
-	color: red;
+	color: rgba(240, 240, 240, 1);
 }
 /**DETAILS PAGE**/
 .building_name{
 	text-align: center;
 	font-size: 30px;
+}
+.carusel{
+	margin: 10px;
 }
 .carousel-inner img{
 	height: 400px;
@@ -131,7 +142,11 @@ body {
 }
 
 .details_table{
-	margin: 20px;
+	max-width: 600px;
+	margin: 10px auto 10px auto;
+	padding: 10px;
+	background-color: rgba(240, 240, 240, 0.1);
+	border: 1px solid #e7e7e7;
 }
 
 .details_table th, td{
@@ -142,17 +157,24 @@ body {
 /**LOGGING PAGE**/
 .sign_up_bg{
 	display: block;
-	margin-top: 20px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 10px auto 10px auto;
 	max-width: 600px;
 	background-color: rgba(240, 240, 240, 0.1);
+	border: 1px solid #e7e7e7;
 }
 
 .form_bord{
 	padding: 20px;
 	display: block;
 	margin: 0 auto;
+}
+/****************************/
+/**EDIT PAGE**/
+.edit_bg{
+	background-color: rgba(240, 240, 240, 0.1);
+	border: 1px solid #e7e7e7;
+	max-width: 600px;
+	margin: 10px auto 10px auto;
 }
 /****************************/
 

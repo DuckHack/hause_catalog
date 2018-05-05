@@ -1,7 +1,8 @@
 extends layout
 
 block contentList
-	h1=title
+	div(class='page_name')
+		h1=title
 	div(class='sign_up_bg')
 			div(class='form_bord')
 				form(action="/logging/validate/" method="post")
