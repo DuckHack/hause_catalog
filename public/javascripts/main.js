@@ -6,3 +6,15 @@ function preview_images()
   $('#image_preview').append("<div class='col-md-3'><img class='img-responsive' src='"+URL.createObjectURL(event.target.files[i])+"'></div>");
  }
 }
+
+function showText(id){
+	var cond;
+	
+
+	if(document.getElementById(id).style.display == "block"){
+		document.getElementById(id).style.display = "none";
+	}else{
+		document.getElementById(id).style.display = "block";
+	}
+
+}

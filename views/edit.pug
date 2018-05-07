@@ -3,12 +3,13 @@ extends layout
 block contentList
 	div(class='page_name')
 		h1=title
+		p=status
 	div(class='edit_bg')
 			div(class='form_bord')
-				form(action="/edit/edit_building/" method="post")
+				form(action="/edit/edit_building/" enctype="multipart/form-data" method="post")
 					div(class="form-group")
-						label(for="exampleFormControlSelect1") Select the seller
-						select(class="form-control" id="exampleFormControlSelect1")
+						label(for="seller") Select the seller
+						select(class="form-control" name="seller" id="seller")
 							each seller in seller_list
 								option #{seller.company_name}
 					div(class="form-group")
@@ -30,7 +31,7 @@ block contentList
 						label(for="land_area") Land area
 						input(type="text" class="form-control" name="land_area" placeholder="Land area(m^2)")
 					div(class="form-group")
-						input(type="file" class="form-control" id="images" name="images[]" onchange="preview_images();" multiple)
+						input(type="file" class="form-control" id="images" name="images" onchange="preview_images();" multiple)
 					button(type="submit" class="btn btn-primary") Edit
 				div(class="row" id="image_preview")
 

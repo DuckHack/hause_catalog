@@ -127,9 +127,11 @@ body {
 	text-align: center;
 	font-size: 30px;
 }
+
 .carusel{
 	margin: 10px;
 }
+
 .carousel-inner img{
 	height: 400px;
 	margin-left: auto;
@@ -177,6 +179,59 @@ body {
 	margin: 10px auto 10px auto;
 }
 /****************************/
+
+/**ABOUT PAGE**/
+.about_bg{
+	background-color: rgba(240, 240, 240, 0.1);
+	border: 1px solid #e7e7e7;
+	margin: 10px;
+	padding: 20px;
+}
+
+.about_content, .about_disc{
+	text-align: center;
+}
+
+.about_content p, .about_disc p{
+	margin: 10px;
+	font-size: 30px;
+}
+
+.about_content img{
+	display: block;
+	margin: 10px auto 10px auto;
+}
+
+.about_disc li{
+	list-style-type: none;
+	color: rgba(240, 240, 240, 1);
+	font-size: 25px;
+}
+
+.about_disc li:hover{
+	font-size: 30px;
+}
+
+.about_disc li:active{
+	font-size: 30px;
+	color: red;
+}
+
+.li{
+	max-width: 300px;
+	margin: 10px auto 10px auto;
+}
+
+.li p{
+	font-size: 20px;
+	color: black;
+	text-align: left;
+}
+
+#aText, #bText, #dText, #eText, #lText{
+	display: none;
+}
+/***************************/
 
 /*
 .img{

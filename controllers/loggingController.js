@@ -2,18 +2,17 @@
 const { body, validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
 
-var Entity = require('../models/entity');
+const Entity = require('../models/entity');
 
 exports.logging = function(req, res) {
 	res.render('logging', { title: 'Logging page'});
 };
 
 exports.validate_user = [
-   
     // Validate that the name field is not empty.
 	body('userName', 'User name required').isLength({ min: 3 }).trim(),
 	body('emailAdress', 'Email adress required').isLength({ min: 3 }).trim(),
-//	body('emailAdress', '').isEmail().trim(),
+	//body('emailAdress', '').isEmail().trim(),
 	body('password', 'Password required').isLength({ min: 3 }).trim(),    
 	// Sanitize (trim and escape) the name field.
 	sanitizeBody('userName').trim().escape(),
@@ -27,7 +26,7 @@ exports.validate_user = [
 
 		if (!errors.isEmpty()) {
             	// There are errors. Render the form again with sanitized values/error messages.
-			res.send('Error');			
+			res.send(errors.array());			
 			//res.render('logging', { title: 'Create Genre', genre: genre, errors: errors.array()});
 			return;
 		}
@@ -46,7 +45,6 @@ exports.validate_user = [
 							res.render('logging', { title: 'Invalid password'});						
 						}
 						else{
-							//res.send(found_entity.passwd);			
 							res.redirect('/edit');
 						}
 					}
@@ -59,4 +57,3 @@ exports.validate_user = [
 		}
 	}
 ];
-

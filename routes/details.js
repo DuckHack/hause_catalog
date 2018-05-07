@@ -1,11 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var details_controller = require('../controllers/detailsController');
+const details_controller = require('../controllers/detailsController');
 
-//GET about page
-router.get('/', details_controller.details);
-
+//GET details page
 router.get('/:id', details_controller.details_param);
 
 module.exports = router;

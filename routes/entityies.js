@@ -1,15 +1,11 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var logging_controller = require('../controllers/loggingController');
+const logging_controller = require('../controllers/loggingController');
 
-/* GET users listing. */
+//GET logging page
 router.get('/', logging_controller.logging);
-
+//POST users data
 router.post('/validate', logging_controller.validate_user)
-/*
-router.get('/', function(req, res, next){
-  res.send('respond with a resource');
-});
-*/
+
 module.exports = router;

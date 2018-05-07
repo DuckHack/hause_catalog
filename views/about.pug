@@ -3,3 +3,37 @@ extends layout
 block contentList
 	div(class='page_name')
 		h1= name
+	div(class="about_bg")
+		div(class="about_content")
+			p APP Scheme
+			img(src='/images/about/MVCSCH.png')
+			p DB Scheme
+			img(src='/images/about/DBSCH.png')
+		div(class="about_disc")
+			p APP methods description
+			ul
+				div(class='li')
+					li(onclick="showText('aText')") aboutController
+						div(id="aText")
+							p function about
+							p Render for user about page
+					li(onclick="showText('bText')") buildingController
+						div(id="bText")
+							p function index
+							p Search via DB for buildings and if it success send result list for user
+					li(onclick="showText('dText')") detailsController
+						div(id="dText")
+							p function details_param
+							p Search via DB for buildings details and if it success send result for user					
+					li(onclick="showText('eText')") editController
+						div(id="eText")
+							p function edit
+							p Send to user edit form, which allows to add new building to the system
+							p function edit_building
+							p Receive from user new building details, check it for mistakes and add new building to DB
+					li(onclick="showText('lText')") loggingController
+						div(id="lText")
+							p function logging
+							p Send to user loggin form
+							p function validate_user
+							p Receive from user his accout fields, check it for coincidence, if all ok - send to user edit form

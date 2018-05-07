@@ -12,13 +12,13 @@ var buildingSchema = new Schema({
 	price			: {type: Number, required: true},
 	beadrooms_number	: {type: Number, required: true},
 	bathrooms_number	: {type: Number, required: true},
-	publication_date	: {type: String, required: true},
+	publication_date	: {type: String, default: '2012-12-21'},
 });
 
 buildingSchema
-.virtual('url')
-.get(function(){
-	return '/details/' + this._id;
+	.virtual('url')
+	.get(function(){
+		return '/details/' + this._id;
 });
 
 module.exports = mongoose.model('Building', buildingSchema);
